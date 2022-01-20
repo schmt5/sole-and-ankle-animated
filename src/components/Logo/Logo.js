@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components/macro';
 import { WEIGHTS } from '../../constants';
+import { animate } from 'motion';
 
 const Logo = (props) => {
+  const linkRef = useRef(null);
+
+  useEffect(() => {
+    animate('.link', {
+      transform: "rotate(20deg)",
+    },
+    {
+      duration: 1,
+    })
+  });
+
   return (
     <Link href="/">
-      <Wrapper {...props}>Sole&amp;Ankle</Wrapper>
+      <Wrapper className='link' ref={linkRef} {...props}>Sole&amp;Ankle</Wrapper>
     </Link>
   );
 };

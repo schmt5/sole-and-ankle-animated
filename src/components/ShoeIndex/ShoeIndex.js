@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { spring } from 'motion';
 
 import { QUERIES, WEIGHTS } from '../../constants';
 
@@ -8,8 +9,13 @@ import Select from '../Select';
 import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
+import MotionOne from './motionOne';
+
 
 const ShoeBreadcrumbs = () => {
+
+
+
   return (
     <Breadcrumbs>
       <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
@@ -28,7 +34,17 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             <MobileBreadcrumbs>
               <ShoeBreadcrumbs />
             </MobileBreadcrumbs>
-            <Title>Running</Title>
+            <MotionOne
+              animation={{
+                x: 200,
+              }}
+              transition={{
+                duration: 1,
+                easing: spring(),
+              }}
+            >
+              <Title>Running</Title>
+            </MotionOne>
           </div>
 
           <SortFilterWrapper>
